@@ -25,7 +25,8 @@ export const currentUser = (
 
   try {
     const payload = jwt.verify(
-      req.session.jwt,
+      console.log(req.session.jwt),
+      req.cookie.jwt,
       process.env.JWT_KEY!
     ) as UserPayload;
     req.currentUser = payload;
